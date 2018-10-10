@@ -1,0 +1,76 @@
+// 笔试题.cpp: 定义控制台应用程序的入口点。
+//
+
+#include"stdafx.h"
+#include<iostream>
+using namespace std;
+#include<cmath>
+
+
+int mmin(int i)
+{
+	int f = 1;
+	int min=0;
+	while (f <= i)
+	{
+		min += f;
+		f++;
+	}
+	return min;
+}
+
+
+void pro(int n, int m)
+{
+	int *num = new int [n];
+	int p = 0;
+	int d = 0;
+	int sum = 0;
+	int i;
+	int result;
+	int zhong;
+	while (p<n - 1)
+	{
+		num[p] = p + 1;
+		p++;
+	}
+	while (d<n - 1)
+	{
+		sum += num[d];
+		d++;
+	}
+	num[p] = m - sum;
+	zhong = num[p] - num[p - 1];
+	if (zhong % 2 == 0)
+	{
+		result = zhong / 2;
+	}
+	else
+	{
+		result = zhong / 2 + 1;
+	}
+	cout << endl << "The result is:" << result << endl << endl << endl;
+}
+
+int main()
+{
+	int m, n, min;
+	for (;;)
+	{
+		cout << "m:" << endl;
+		cin >> m;
+		cout << "n:" << endl;
+		cin >> n;
+		min = mmin(n);
+		if (m<min)
+		{
+			cout << "The result is 0!" << endl << endl << endl;
+		}
+		else
+		{
+			pro(n, m);
+		}
+	}
+
+	return 0;
+}
