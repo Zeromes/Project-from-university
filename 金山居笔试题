@@ -19,6 +19,21 @@ int mmin(int i)
 	return min;
 }
 
+int zhongleic(int tou, int wei,int chu)
+{
+	int cha;
+	int result;
+	cha = tou - wei;
+	if (cha % chu <= chu / 2 )
+	{
+		result = cha / 2;
+	}
+	else
+	{
+		result = cha / 2 + 1;
+	}
+	return result;
+}
 
 void pro(int n, int m)
 {
@@ -26,9 +41,8 @@ void pro(int n, int m)
 	int p = 0;
 	int d = 0;
 	int sum = 0;
-	int i;
 	int result;
-	int zhong;
+	int ju;
 	while (p<n - 1)
 	{
 		num[p] = p + 1;
@@ -40,15 +54,7 @@ void pro(int n, int m)
 		d++;
 	}
 	num[p] = m - sum;
-	zhong = num[p] - num[p - 1];
-	if (zhong % 2 == 0)
-	{
-		result = zhong / 2;
-	}
-	else
-	{
-		result = zhong / 2 + 1;
-	}
+	
 	cout << endl << "The result is:" << result << endl << endl << endl;
 }
 
